@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<html>
+<head>
+    <title>
+        @CurrentPage.Name
+    </title>
+</head>
+<body>
+    <header>
+        @Umbraco.RenderMacro("Menu", new { startNodeId = "1057" })
+    </header>
+    <section>
+        <div>
+            <h3>
+                @CurrentPage.Title
+            </h3>
+                @CurrentPage.Text
+        </div>
+        @RenderBody()
+    </section>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{ var startNodeId = Model.MacroParameters["startNodeId"]; }
+@if (startNodeId != null)
+{
+    var startNode = Umbraco.Content(startNodeId);
+    var selection = startNode.Children.Where("Visible");
+    var linkId = Umbraco.Content(startNode.Links);
+    var links = linkId.Link;
+        <ul>
+                   
+	<li> 
+			<a href="@startNode.Url">@startNode.Name</a>
+			</li>
+    @if (selection.Any())
+    {
+            foreach (var item in selection)
+            {
+                <li>
+                    <a href="@item.Url">@item.Name</a>
+                </li>
+            }
+    }
+ 
+        <li>
+            <a href="">Links</a>
+            <ul>
+                @foreach (var link in links)
+                {
+                    var linkUrl = (bool)link.isInternal ? Umbraco.NiceUrl(link.Value<int>("internal")) : link.link;
+                    var linkTarget = (bool)link.newWindow ? "_blank" : null;
+                <li>
+                    <a href="@linkUrl" target="@linkTarget">@link.caption</a>
+                </li>
+                }
+            </ul>
+        </li>
+
+
+
+        </ul>
+}
