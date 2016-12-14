@@ -412,6 +412,12 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\img\bedge_grunge.png" />
+    <Content Include="assets\js\components\gallery.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\components\menu\menu.js" />
+    <Content Include="assets\js\plugins\jquery-3.1.0.min.js" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
     <Content Include="bin\amd64\sqlceca40.dll" />
@@ -3239,6 +3245,20 @@
     <Content Include="Views\TextPage.cshtml" />
     <Content Include="Views\Gallery.cshtml" />
     <Content Include="Views\Links.cshtml" />
+    <Content Include="assets\scss\main.scss" />
+    <Content Include="assets\scss\main\reset.scss" />
+    <Content Include="assets\scss\main\box.scss" />
+    <Content Include="assets\scss\main\menu.scss" />
+    <Content Include="Views\Board.cshtml" />
+    <Content Include="Views\Weather.cshtml" />
+    <Content Include="Views\MacroPartials\Weather.cshtml" />
+    <Content Include="assets\scss\main\modifiers.scss" />
+    <Content Include="Views\Stories.cshtml" />
+    <Content Include="Views\HuntingSeason.cshtml" />
+    <Content Include="assets\scss\main\season.scss" />
+    <Content Include="assets\scss\main\gallery.scss" />
+    <Content Include="Views\MacroPartials\Gallery.cshtml" />
+    <Content Include="Views\Story.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3249,6 +3269,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NuGetBackup\20161124-132239\Umbraco\" />
     <Folder Include="App_Data\NuGetBackup\20161124-132239\Umbraco_Client\" />
+    <Folder Include="assets\scss\pages\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />

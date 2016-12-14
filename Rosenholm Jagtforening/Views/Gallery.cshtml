@@ -1,5 +1,28 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Gallery>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+    Layout = "Master.cshtml";
 }
+<section class="left pad gallery">
+    @foreach (var c in CurrentPage.media.Split(','))
+    {
+        var m = Umbraco.Content(c);
+        <div class="gallery-box">
+            <a href="" >@m.Name</a>
+            <div data-images="@foreach (var i in m.images.Split(',')) { var media = Umbraco.Media(i);<text>@media.Url,</text>}"></div>
+        </div>
+    }
+    <div class="image-box hide">
+        <a href="" class="img-prev slider-pos">Forrige</a>
+        <a href="" class="img-next slider-pos">Næste</a>
+        <div class="image-con">
+            <img />
+            <div class="i-con"><p id="index"></p></div>
+            <div class="close">Luk</div>
+        </div>
+    </div>
+</section>
+<script src="~/assets/js/components/gallery.js"></script>
+<script>
+    gallery.open();
+</script>

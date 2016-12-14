@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Story>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@section Top{
+    <a class="back" href="@CurrentPage.Parent().Url">Tilbage</a>
+}
+<section class="left pad-notop">
+            <span><b>@CurrentPage.author</b></span>
+</section>

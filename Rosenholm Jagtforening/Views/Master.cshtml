@@ -1,23 +1,48 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var first = Umbraco.TypedContentAtRoot().First();
+    var home = Umbraco.Content(first.Id);
+    var logo = Umbraco.Media(home.logo);
+}
 <html>
 <head>
     <title>
         @CurrentPage.Name
     </title>
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <script src="~/assets/js/plugins/jquery-3.1.0.min.js"></script>
 </head>
 <body>
+
     <header>
-        @Umbraco.RenderMacro("Menu", new { startNodeId = "1057" })
-    </header>
-    <section>
-        <div>
-            <h3>
-                @CurrentPage.Title
-            </h3>
-                @CurrentPage.Text
+        <div class="wrap">
+            <img src="@logo.Url" />
         </div>
-        @RenderBody()
-    </section>
-    <footer></footer>
+    </header>
+    <div class="content pad">
+        <div class="wrap spacing clearfix">
+            <nav class="left">
+                <div class="side-menu">
+                    @Umbraco.RenderMacro("Menu", new { startNodeId = "1057" })
+                </div>
+            </nav>
+            <section class="left pad-notop clearfix">
+                @RenderSection("Top", required: false)
+                <h3>
+                    @CurrentPage.Title
+                </h3>
+                @CurrentPage.Text
+            </section>
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer class="spacing">
+        <div class="wrap">
+
+        </div>
+    </footer>
+    <script src="~/assets/js/components/menu/menu.js"></script>
+    <script src="~/assets/js/main.js"></script>
 </body>
 </html>

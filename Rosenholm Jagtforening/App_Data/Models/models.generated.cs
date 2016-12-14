@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "141c739e87f5e64f")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "599f2d5425bcac86")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -56,6 +56,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public object Links
 		{
 			get { return this.GetPropertyValue("links"); }
+		}
+
+		///<summary>
+		/// Logo
+		///</summary>
+		[ImplementPropertyType("logo")]
+		public string Logo
+		{
+			get { return this.GetPropertyValue<string>("logo"); }
 		}
 
 		///<summary>
@@ -214,6 +223,444 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ComponentFolder, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Board</summary>
+	[PublishedContentModel("board")]
+	public partial class Board : TextPage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "board";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Board(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Board, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Members
+		///</summary>
+		[ImplementPropertyType("members")]
+		public string Members
+		{
+			get { return this.GetPropertyValue<string>("members"); }
+		}
+	}
+
+	/// <summary>Member folder</summary>
+	[PublishedContentModel("memberFolder")]
+	public partial class MemberFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "memberFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public MemberFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MemberFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Members</summary>
+	[PublishedContentModel("members")]
+	public partial class Members : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "members";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Members(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Members, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Name
+		///</summary>
+		[ImplementPropertyType("fullName")]
+		public string FullName
+		{
+			get { return this.GetPropertyValue<string>("fullName"); }
+		}
+
+		///<summary>
+		/// Role
+		///</summary>
+		[ImplementPropertyType("role")]
+		public string Role
+		{
+			get { return this.GetPropertyValue<string>("role"); }
+		}
+	}
+
+	/// <summary>Weather</summary>
+	[PublishedContentModel("weather")]
+	public partial class Weather : TextPage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "weather";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Weather(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Weather, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Weather pictures
+		///</summary>
+		[ImplementPropertyType("weatherPictures")]
+		public Newtonsoft.Json.Linq.JArray WeatherPictures
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JArray>("weatherPictures"); }
+		}
+	}
+
+	/// <summary>Stories</summary>
+	[PublishedContentModel("stories")]
+	public partial class Stories : TextPage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "stories";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Stories(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Stories, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Season folder</summary>
+	[PublishedContentModel("seasonFolder")]
+	public partial class SeasonFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "seasonFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public SeasonFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SeasonFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Prey</summary>
+	[PublishedContentModel("season")]
+	public partial class Season : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "season";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Season(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Season, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Date end
+		///</summary>
+		[ImplementPropertyType("dateEnd")]
+		public DateTime DateEnd
+		{
+			get { return this.GetPropertyValue<DateTime>("dateEnd"); }
+		}
+
+		///<summary>
+		/// Date start
+		///</summary>
+		[ImplementPropertyType("dateStart")]
+		public DateTime DateStart
+		{
+			get { return this.GetPropertyValue<DateTime>("dateStart"); }
+		}
+
+		///<summary>
+		/// Name
+		///</summary>
+		[ImplementPropertyType("preyName")]
+		public string PreyName
+		{
+			get { return this.GetPropertyValue<string>("preyName"); }
+		}
+	}
+
+	/// <summary>Type folder</summary>
+	[PublishedContentModel("typeFolder")]
+	public partial class TypeFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "typeFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public TypeFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TypeFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Gallery folder</summary>
+	[PublishedContentModel("galleryFolder")]
+	public partial class GalleryFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "galleryFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GalleryFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GalleryFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Gallery item</summary>
+	[PublishedContentModel("galleryItem")]
+	public partial class GalleryItem : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "galleryItem";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GalleryItem(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GalleryItem, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Images
+		///</summary>
+		[ImplementPropertyType("images")]
+		public string Images
+		{
+			get { return this.GetPropertyValue<string>("images"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
+		}
+	}
+
+	/// <summary>Hunting season</summary>
+	[PublishedContentModel("huntingSeason")]
+	public partial class HuntingSeason : TextPage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "huntingSeason";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public HuntingSeason(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<HuntingSeason, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Season select
+		///</summary>
+		[ImplementPropertyType("seasonSelect")]
+		public object SeasonSelect
+		{
+			get { return this.GetPropertyValue("seasonSelect"); }
+		}
+	}
+
+	/// <summary>Story</summary>
+	[PublishedContentModel("story")]
+	public partial class Story : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "story";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Story(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Story, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Author
+		///</summary>
+		[ImplementPropertyType("author")]
+		public string Author
+		{
+			get { return this.GetPropertyValue<string>("author"); }
+		}
+
+		///<summary>
+		/// Tease
+		///</summary>
+		[ImplementPropertyType("tease")]
+		public string Tease
+		{
+			get { return this.GetPropertyValue<string>("tease"); }
+		}
+
+		///<summary>
+		/// Text
+		///</summary>
+		[ImplementPropertyType("text")]
+		public IHtmlString Text
+		{
+			get { return this.GetPropertyValue<IHtmlString>("text"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
 		}
 	}
 

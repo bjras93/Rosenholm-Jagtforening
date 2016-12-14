@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@{ var w = CurrentPage.weatherPictures; }
+<section class="left pad-notop">
+    <ul>
+		@foreach (var link in w)
+                {
+                    var linkUrl = (bool)link.isInternal ? Umbraco.NiceUrl(link.Value<int>("internal")) : link.link;
+                    var linkTarget = (bool)link.newWindow ? "_blank" : null;
+                <li>
+                    <img src="@linkUrl" />
+                </li>
+                }
+    </ul>
+</section>

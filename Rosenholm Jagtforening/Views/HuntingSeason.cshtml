@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.HuntingSeason>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+	var c = Umbraco.Content(CurrentPage.seasonSelect).Children;
+}
+<section class="left pad-notop">
+    @foreach (var s in c)
+    {
+        var sc = s.Children;
+        <div class="season-item spacing">            
+            <h3>@s.Name</h3>
+            <ul class="season-list">
+                @foreach (var sci in sc)
+                {
+                    TimeSpan span = sci.dateEnd - DateTime.Now;
+                    double totalMinutes = span.TotalMinutes;
+                    <li>
+                        <h5>@sci.Name</h5>
+                        <p>@span.Days dag(e)</p>
+                        <p>Fra</p>
+                        <p>@sci.dateStart.ToString("dd-MM-yyyy")</p>
+                        <p>Til</p>
+                        <p>@sci.dateEnd.ToString("dd-MM-yyyy")</p>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</section>

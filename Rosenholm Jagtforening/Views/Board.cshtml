@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Board>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+}
+<div class="wrap">
+    <ul>
+        @foreach (var member in CurrentPage.Members.Split(','))
+        {
+            var m = Umbraco.Content(member);
+            <li>
+                @m.fullName
+            </li>
+        }
+    </ul>
+</div>

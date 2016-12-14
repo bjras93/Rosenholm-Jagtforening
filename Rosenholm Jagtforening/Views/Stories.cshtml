@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Stories>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}<section class="left pad-notop">
+    @foreach (var story in CurrentPage.Children)
+    {
+        <div class="spacing">
+            <h3>@story.title</h3>
+            <span>
+                @story.tease
+            </span>
+			<p><a href="@story.Url">Læs mere...</a></p>
+            <p><b>@story.author</b></p>
+        </div>
+    }
+</section>

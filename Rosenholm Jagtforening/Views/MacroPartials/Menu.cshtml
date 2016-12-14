@@ -9,20 +9,21 @@
         <ul>
                    
 	<li> 
-			<a href="@startNode.Url">@startNode.Name</a>
+			<a @if (CurrentPage.Name == startNode.Name) {<text>class="active"</text> } href="@startNode.Url">@startNode.Name</a>
 			</li>
     @if (selection.Any())
     {
-            foreach (var item in selection)
-            {
+        foreach (var item in selection)
+        {
+          
                 <li>
-                    <a href="@item.Url">@item.Name</a>
+                    <a @if (CurrentPage.Name == item.Name) {<text>class="active"</text> } href="@item.Url">@item.Name</a>
                 </li>
-            }
+        }
     }
- 
+
         <li>
-            <a href="">Links</a>
+            <a href="" class="slide">Links</a>
             <ul>
                 @foreach (var link in links)
                 {
@@ -34,7 +35,8 @@
                 }
             </ul>
         </li>
-
+
+
 
 
         </ul>

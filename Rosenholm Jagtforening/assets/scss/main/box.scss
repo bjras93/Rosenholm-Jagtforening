@@ -1,0 +1,15 @@
+﻿.wrap {
+    width: 1024px;
+    margin: 0 auto;    
+}
+.content {
+    background-color: #fff;
+    min-height: 650px;
+    @extend .spacing;
+    nav {
+        width: 15%;
+    }
+    section {
+        width: 85%;
+    }
+}
