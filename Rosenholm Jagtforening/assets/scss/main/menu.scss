@@ -1,11 +1,12 @@
 ﻿nav {
+
     a {
         width: 100%;
         color: #333;
         padding: 10px;
-        width:100%;
-        display:block;
-        text-decoration:none;
+        width: 100%;
+        display: block;
+        text-decoration: none;
     }
 
     ul ul {
@@ -13,7 +14,42 @@
         font-size: 0.8em;
         margin: 1px 2px;
     }
+
     .active {
-        background-color: rgb(234, 254, 242)
+        background-color: rgb(234, 254, 242);
+
+        @include phone {
+            background-color: rgb(224, 244, 232);
+        }
+    }
+
+    #mobile {
+        display: none;
+    }
+
+    @include phone {
+        border: none;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+
+        #mobile {
+            display: block;
+            text-align:right;
+            padding: 5px 5px 5px 0;
+            cursor:pointer;
+            font-size: 2em;
+        }
+
+        .side-menu {
+            height: auto !important;
+        }
+
+        ul {
+            background-color: rgb(234, 254, 242);
+            display: none;
+        }
     }
 }

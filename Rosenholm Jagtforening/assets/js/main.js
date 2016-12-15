@@ -1,6 +1,7 @@
 ﻿var main = {
     init: function () {
         menu.slide('.slide');
+        menu.mobile('#mobile');
         
     }
 }

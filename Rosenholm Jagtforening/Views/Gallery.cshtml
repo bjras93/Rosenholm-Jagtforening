@@ -3,7 +3,7 @@
 @{
     Layout = "Master.cshtml";
 }
-<section class="left pad gallery">
+<div class="spacing gallery">
     @foreach (var c in CurrentPage.media.Split(','))
     {
         var m = Umbraco.Content(c);
@@ -21,7 +21,7 @@
             <div class="close">Luk</div>
         </div>
     </div>
-</section>
+</div>
 <script src="~/assets/js/components/gallery.js"></script>
 <script>
     gallery.open();

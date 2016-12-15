@@ -3,14 +3,19 @@
 @{
     Layout = "Master.cshtml";
 }
-<div class="wrap">
+<section class="left pad-notop">
     <ul>
         @foreach (var member in CurrentPage.Members.Split(','))
         {
             var m = Umbraco.Content(member);
-            <li>
-                @m.fullName
+            <li class="left pad">
+                <h3>@m.role</h3>
+                <p>@m.fullName</p>
+                <p>@m.address</p>
+                <p>@m.zipCode</p>
+                <p>Tlf.: @m.phone</p>
+                <p>@m.email</p>
             </li>
         }
     </ul>
-</div>
+</section>

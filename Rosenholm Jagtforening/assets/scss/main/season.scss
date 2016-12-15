@@ -1,7 +1,11 @@
 ﻿.season-list {
     li {
         float:left;
+        width:30%;
         margin: 10px 15px 5px 0;
+        @include phone {
+            width: 45%;
+        }
     }
 }
 .season-item {

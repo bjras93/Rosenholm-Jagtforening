@@ -16,13 +16,14 @@
 
     <header>
         <div class="wrap">
-            <img src="@logo.Url" />
+            <a href="/"><img src="@logo.Url" /></a>
         </div>
     </header>
     <div class="content pad">
         <div class="wrap spacing clearfix">
             <nav class="left">
                 <div class="side-menu">
+                    <span id="mobile">&#9776;</span>
                     @Umbraco.RenderMacro("Menu", new { startNodeId = "1057" })
                 </div>
             </nav>
@@ -32,8 +33,8 @@
                     @CurrentPage.Title
                 </h3>
                 @CurrentPage.Text
+                @RenderBody()
             </section>
-            @RenderBody()
         </div>
     </div>
 

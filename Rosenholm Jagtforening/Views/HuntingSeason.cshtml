@@ -22,6 +22,10 @@
                         <p>@sci.dateStart.ToString("dd-MM-yyyy")</p>
                         <p>Til</p>
                         <p>@sci.dateEnd.ToString("dd-MM-yyyy")</p>
+                        @if (span.Days > 0)
+                        {
+                            <p>Jagt</p>
+                        }
                     </li>
                 }
             </ul>

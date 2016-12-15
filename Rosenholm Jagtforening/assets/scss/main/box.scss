@@ -1,15 +1,35 @@
 ﻿.wrap {
     width: 1024px;
-    margin: 0 auto;    
+    margin: 0 auto;
+    max-width: 100%;
 }
+
 .content {
     background-color: #fff;
     min-height: 650px;
+    position:relative;
     @extend .spacing;
+
     nav {
         width: 15%;
+        min-width: 150px;
+        border-right: 1px solid rgb(240,240,240);
     }
+
     section {
         width: 85%;
+        @include tablet {
+            width: 70%;
+        }        
+        @include phone {
+            width: 100%;
+            margin-top: 25px;
+        }
+    }
+}
+
+header {
+    img {
+        max-width: 100%;
     }
 }

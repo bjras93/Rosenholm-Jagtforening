@@ -6,22 +6,21 @@
     var selection = startNode.Children.Where("Visible");
     var linkId = Umbraco.Content(startNode.Links);
     var links = linkId.Link;
-        <ul>
-                   
-	<li> 
-			<a @if (CurrentPage.Name == startNode.Name) {<text>class="active"</text> } href="@startNode.Url">@startNode.Name</a>
-			</li>
-    @if (selection.Any())
-    {
-        foreach (var item in selection)
-        {
-          
-                <li>
-                    <a @if (CurrentPage.Name == item.Name) {<text>class="active"</text> } href="@item.Url">@item.Name</a>
-                </li>
-        }
-    }
+    <ul>
 
+        <li>
+            <a @if (CurrentPage.Name == startNode.Name) { <text> class="active" </text>  } href="@startNode.Url">@startNode.Name</a>
+        </li>
+        @if (selection.Any())
+        {
+            foreach (var item in selection)
+            {
+
+                <li>
+                    <a @if (CurrentPage.Name == item.Name) { <text> class="active" </text>  } href="@item.Url">@item.Name</a>
+                </li>
+            }
+        }
         <li>
             <a href="" class="slide">Links</a>
             <ul>
@@ -29,15 +28,13 @@
                 {
                     var linkUrl = (bool)link.isInternal ? Umbraco.NiceUrl(link.Value<int>("internal")) : link.link;
                     var linkTarget = (bool)link.newWindow ? "_blank" : null;
-                <li>
-                    <a href="@linkUrl" target="@linkTarget">@link.caption</a>
-                </li>
+                    <li>
+                        <a href="@linkUrl" target="@linkTarget">@link.caption</a>
+                    </li>
                 }
             </ul>
         </li>
 
 
-
-
-        </ul>
+    </ul>
 }
