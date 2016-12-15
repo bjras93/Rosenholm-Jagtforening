@@ -64,6 +64,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Hunting stage
+		///</summary>
+		[ImplementPropertyType("huntingStage")]
+		public string HuntingStage
+		{
+			get { return this.GetPropertyValue<string>("huntingStage"); }
+		}
+
+		///<summary>
 		/// Name
 		///</summary>
 		[ImplementPropertyType("preyName")]

@@ -16,16 +16,16 @@
                     TimeSpan span = sci.dateEnd - DateTime.Now;
                     double totalMinutes = span.TotalMinutes;
                     <li>
-                        <h5>@sci.Name</h5>
+                        <h5>@sci.Name</h5>						
+                        @if (span.Days > 0)
+						{
                         <p>@span.Days dag(e)</p>
+                        }
                         <p>Fra</p>
                         <p>@sci.dateStart.ToString("dd-MM-yyyy")</p>
                         <p>Til</p>
                         <p>@sci.dateEnd.ToString("dd-MM-yyyy")</p>
-                        @if (span.Days > 0)
-                        {
-                            <p>Jagt</p>
-                        }
+						<p>@sci.huntingStage</p>
                     </li>
                 }
             </ul>
